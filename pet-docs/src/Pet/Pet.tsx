@@ -30,9 +30,9 @@ export default function Pet(props: {
       }) => {
         setName(Name);
         setType(TypeId);
-        setOwnerName(Name);
+        setOwnerName(OwnerName);
         const toFormatDate = new Date(DOB);
-        const month = toFormatDate.getMonth().toString().length === 2 ? toFormatDate.getMonth() : `0${toFormatDate.getMonth()}`;
+        const month = toFormatDate.getMonth().toString().length === 2 ? toFormatDate.getMonth() + 1 : `0${toFormatDate.getMonth() + 1}`;
         const day = toFormatDate.getDate().toString().length === 2 ? toFormatDate.getDate() : `0${toFormatDate.getDate()}`;
         setDob(`${toFormatDate.getFullYear()}-${month}-${day}`);
       });
