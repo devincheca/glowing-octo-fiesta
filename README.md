@@ -1,6 +1,10 @@
 # Pet Docs
 Sample Pet App
 
+the site can be viewed at: https://novellia.devincheca.com
+
+the admin site can be viewed at: https://novellia.devincheca.com/?isAdmin=true
+
 to run locally:
 - cd pet-docs
 - npm ci
