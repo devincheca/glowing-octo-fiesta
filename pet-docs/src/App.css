@@ -30,6 +30,7 @@
   border-radius: .5em;
   height: 75vh;
   width: 75vw;
+  overflow-y: auto;
 }
 
 .App-link {
