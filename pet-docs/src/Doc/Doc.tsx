@@ -50,6 +50,11 @@ export default function Doc(props: {
     }
   }
 
+  const validateType = (type: string) => {
+    if (type === 'none') setError('Type required');
+    else setError('');
+  };
+
   return (
     <div>
       <div style={{ textAlign: 'right' }}>
@@ -57,14 +62,14 @@ export default function Doc(props: {
       </div>
       <h1 style={{ textAlign: 'left' }}>New Pet Document</h1>
       <br></br>
-      <form className="m-10 p-10">
+      <form style={{ width: '50vw', margin: 'auto', }}>
         <div>
           <label>Document Type:</label>
           <select
             className="text-black rounded m-5"
             name="type"
             id="type"
-            onChange={event => setType((event.target as HTMLSelectElement).value)}
+            onChange={event => { validateType((event.target as HTMLSelectElement).value); setType((event.target as HTMLSelectElement).value); }}
             value={type}
             required>
             <option value="none">-</option>
@@ -147,10 +152,11 @@ export default function Doc(props: {
           </div>
         }
         <br></br>
-        <div className="text-danger">{error}</div>
+        <div className="has-text-danger">{error}</div>
         <button
           className="p-3 bg-white rounded text-black"
           type="button"
+          disabled={!!error}
           onClick={addDoc}>
             Add Document
         </button>

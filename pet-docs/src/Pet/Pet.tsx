@@ -86,6 +86,31 @@ export default function Pet(props: {
     }
   }
 
+  const validateName = (name: string) => {
+    if (!name) setError('Name required');
+    else setError('');
+  };
+
+  const validateOwnerName = (name: string) => {
+    if (!name) setError('Owner Name required');
+    else setError('');
+  };
+
+  const validateDob = (date: string) => {
+    const today = new Date();
+    let error = '';
+
+    if (today < new Date(date)) error = 'Invalid Date of Birth';
+    if (new Date(date).getFullYear() < 1950) error = 'Invalid Date of Birth';
+
+    setError(error);
+  };
+
+  const validateType = (type: string) => {
+    if (isNaN(parseInt(type))) setError('Type required');
+    else setError('');
+  };
+
   return (
     <div>
       <div style={{ textAlign: 'right' }}>
@@ -93,7 +118,7 @@ export default function Pet(props: {
       </div>
       <h1 style={{ textAlign: 'left' }}>{isEdit ? 'Edit' : 'Add'} your Pet</h1>
       <br></br>
-      <form style={{ width: '50vw' }}>
+      <form style={{ width: '50vw', margin: 'auto', }}>
         <div>
           <input
             className="input"
@@ -101,7 +126,7 @@ export default function Pet(props: {
             placeholder="Name:"
             name="name"
             id="name"
-            onChange={event => setName((event.target as HTMLInputElement).value)}
+            onChange={event => { validateName((event.target as HTMLInputElement).value); setName((event.target as HTMLInputElement).value); }}
             defaultValue={name || ''}
             required />
         </div>
@@ -111,7 +136,7 @@ export default function Pet(props: {
             className="text-black rounded m-5"
             name="type"
             id="type"
-            onChange={event => setType((event.target as HTMLSelectElement).value)}
+            onChange={event => { validateType((event.target as HTMLSelectElement).value); setType((event.target as HTMLSelectElement).value); }}
             value={type}
             required>
             <option value="none">-</option>
@@ -127,7 +152,7 @@ export default function Pet(props: {
             placeholder="Owner Name:"
             name="ownerName"
             id="ownerName"
-            onChange={event => setOwnerName((event.target as HTMLInputElement).value)}
+            onChange={event => { validateOwnerName((event.target as HTMLInputElement).value); setOwnerName((event.target as HTMLInputElement).value); }}
             defaultValue={ownerName || ''}
             required />
         </div>
@@ -140,15 +165,16 @@ export default function Pet(props: {
             placeholder="Date of Birth:"
             name="dob"
             id="dob"
-            onChange={event => setDob((event.target as HTMLInputElement).value)}
+            onChange={event => { validateDob((event.target as HTMLInputElement).value); setDob((event.target as HTMLInputElement).value); }}
             defaultValue={dob || ''}
             required />
         </div>
         <br></br>
-        <div className="text-danger">{error}</div>
+        <div className="has-text-danger">{error}</div>
         <button
           className="p-3 bg-white rounded text-black"
           type="button"
+          disabled={!!error}
           onClick={isEdit ? editPet : addPet}>
             {isEdit ? 'Save' : 'Add Pet'}
         </button>

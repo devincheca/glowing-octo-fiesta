@@ -7,10 +7,15 @@ export default function Home(props: { setActiveContainer: (nav: string) => void 
   return (
     <>
       <div style={{ margin: '.5em' }}>Keep track of your pet documents in one place</div>
-      <div className='columns'>
-        <button className="button column" onClick={() => setActiveContainer(NAVIGATION_CONTAINERS.GET_STARTED)}>Get Started</button>
-        <button className="button column" onClick={() => setActiveContainer(NAVIGATION_CONTAINERS.MY_PETS)}>My Pets</button>
+      <br></br>
+      <div>
+        <button className="button" onClick={() => setActiveContainer(NAVIGATION_CONTAINERS.GET_STARTED)}>Get Started</button>
       </div>
+      <br></br>
+      <div>
+        <button className="button" onClick={() => setActiveContainer(NAVIGATION_CONTAINERS.MY_PETS)}>My Pets</button>
+      </div>
+      <br></br>
       <p>
         Novellia
       </p>

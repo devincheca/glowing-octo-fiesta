@@ -39,7 +39,7 @@ export default function MyPets(props: { setActiveContainer: (nav: string) => voi
     <>
       <h3>Admin - All Pets</h3>
       { isLoading && <Loading /> }
-      <div style={{ textAlign: 'right', width: '50vw' }}>
+      <div style={{ margin: 'auto', width: '50vw' }}>
         <button className="button" onClick={() => setActiveContainer(NAVIGATION_CONTAINERS.ADD_DOC_TYPE)}>Add Document Type</button>
       </div>
       { !isLoading && <div>
@@ -50,7 +50,7 @@ export default function MyPets(props: { setActiveContainer: (nav: string) => voi
             onChange={event => filterPets((event.target as HTMLInputElement).value)} />
         </div>
       }
-      <div style={{ fontSize: '.70em', height: '50vh', width: "80vw", overflowX: 'hidden', overflowY: 'auto' }}>
+      <div style={{ fontSize: '.70em', margin: 'auto', height: '50vh', width: "50vw", overflowX: 'hidden', overflowY: 'auto' }}>
         { !isLoading && pets.map(({ Id, Name, OwnerName, DOB, TypeName }, i) => {
           return (
             <div key={i} className={i % 2 ? 'odd' : 'even'} style={{ marginBottom: '.6em' }}>

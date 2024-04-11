@@ -51,8 +51,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header rows">
-        <h2>Pet Docs</h2>
-        {containerChild}
+        <div className="App-body">
+          <h2>Pet Docs</h2>
+          {containerChild}
+        </div>
       </header>
     </div>
   );

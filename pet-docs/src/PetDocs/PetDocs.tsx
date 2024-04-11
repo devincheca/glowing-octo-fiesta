@@ -31,6 +31,7 @@ export default function PetDocs(props: { setActiveContainer: (nav: string) => vo
         <button className="button" onClick={() => setActiveContainer(NAVIGATION_CONTAINERS.ADD_DOC)}>Add Document</button>
       </div>
       { isLoading && <Loading /> }
+      { !isLoading && docs.length === 0 && <div>No Docs Available</div> }
       <div style={{ fontSize: '.70em', height: '50vh', width: "80vw", overflowX: 'hidden', overflowY: 'auto' }}>
         { !isLoading && docs.map(({
           Id,

@@ -3,7 +3,7 @@ import { createDocType } from "../services";
 
 // Constants
 import { NAVIGATION_CONTAINERS } from "../constants";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function DocType(props: {
   setActiveContainer: (nav: string) => void
@@ -11,6 +11,15 @@ export default function DocType(props: {
   const { setActiveContainer } = props;
 
   const [type, setType] = useState('');
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    let error = '';
+
+    if (!type) error = 'Type name required';
+
+    setError(error);
+  }, [error, type]);
 
   const getPetDocTypeFormInfo = () => ({
     DocType: type,
@@ -22,6 +31,11 @@ export default function DocType(props: {
 
     setActiveContainer(NAVIGATION_CONTAINERS.MY_PETS);
   }
+
+  const validateName = (name: string) => {
+    if (!name) setError('Type name required');
+    else setError('');
+  };
 
   return (
     <div>
@@ -38,13 +52,14 @@ export default function DocType(props: {
             placeholder="Document Type Name:"
             name="typeName"
             id="typeName"
-            onChange={event => setType((event.target as HTMLInputElement).value)}
+            onChange={event => { validateName((event.target as HTMLInputElement).value); setType((event.target as HTMLInputElement).value); }}
             required />
         </div>
         <br></br>
         <button
           className="p-3 bg-white rounded text-black"
           type="button"
+          disabled={!!error}
           onClick={addDocType}>
             Add Document Type
         </button>

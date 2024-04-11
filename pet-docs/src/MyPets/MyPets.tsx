@@ -56,7 +56,7 @@ export default function MyPets(props: { setActiveContainer: (nav: string) => voi
         </div>
       }
       { !isLoading && pets.length === 0 && <div>No Pets Available</div> }
-      <div style={{ fontSize: '.70em', height: '50vh', width: "80vw", overflowX: 'hidden', overflowY: 'auto' }}>
+      <div style={{ fontSize: '.70em', margin: 'auto', height: '50vh', width: "50vw", overflowX: 'hidden', overflowY: 'auto' }}>
         { !isLoading && pets.map(({ Id, Name, OwnerName, DOB, TypeName }, i) => {
           return (
             <div key={i} className={i % 2 ? 'odd' : 'even'} style={{ marginBottom: '.6em' }}>

@@ -15,6 +15,7 @@
 
 .App-header {
   background-color: #282c34;
+  background-image:linear-gradient(to top right, blue, white, #282c34);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +23,13 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-body {
+  background-color: #282c34;
+  border-radius: .5em;
+  height: 75vh;
+  width: 75vw;
 }
 
 .App-link {
