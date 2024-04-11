@@ -1,13 +1,13 @@
 # Pet Docs
 Sample Pet App
 
-I went with React and Node since those were common technologies that I felt comfortable with to satisfy all the requirements.
+I went with React and Node since those were common technologies that I felt comfortable with to satisfy all the requirements. The additional feature I added that I thought would be useful/cool is a search bar to filter for what you need.
 
 the site can be viewed at: https://novellia.devincheca.com
 
 the admin site can be viewed at: https://novellia.devincheca.com/?isAdmin=true
 
-new document types can be added there
+new document types can be added in admin, and all pets in the system can be seen there
 
 to run locally:
 - cd pet-docs
