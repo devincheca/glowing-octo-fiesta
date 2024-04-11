@@ -1,6 +1,8 @@
 # Pet Docs
 Sample Pet App
 
+I went with React and Node since those were common technologies that I felt comfortable with to satisfy all the requirements.
+
 the site can be viewed at: https://novellia.devincheca.com
 
 the admin site can be viewed at: https://novellia.devincheca.com/?isAdmin=true
