@@ -5,6 +5,8 @@ the site can be viewed at: https://novellia.devincheca.com
 
 the admin site can be viewed at: https://novellia.devincheca.com/?isAdmin=true
 
+new document types can be added there
+
 to run locally:
 - cd pet-docs
 - npm ci
